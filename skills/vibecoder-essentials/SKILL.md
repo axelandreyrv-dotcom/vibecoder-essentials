@@ -1,8 +1,15 @@
 ---
 name: vibecoder-essentials
 description: >-
-  Plan, build, and review vibe-coded software like a senior engineer,
-  security auditor, and systems architect.
+  EN — Plan, build, and review vibe-coded or AI-assisted software like a senior
+  software engineer, security auditor, and systems architect. Use this skill
+  before building to ask critical product, security, architecture, data, SaaS,
+  multi-tenancy, deployment, observability, and testing questions. Use it after
+  building to audit existing apps for production readiness, backend authorization,
+  secrets, API safety, frontend exposure, SQL injection risk, CORS, rate limiting,
+  DDoS/WAF needs, caching, queues, database design, testing, CI/CD, and deployment
+  blockers. ES — Ayuda a planear, construir y auditar aplicaciones creadas con
+  vibe coding o desarrollo asistido por IA antes y después de construirlas.
 version: 1.0.0
 license: MIT
 allowed-tools:
