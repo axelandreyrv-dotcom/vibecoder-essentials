@@ -1,5 +1,9 @@
 # VibeCoder Essentials
 
+<p align="center">
+  <img src="assets/vibecoder-essentials-banner.png" alt="VibeCoder Essentials banner" width="100%">
+</p> 
+
 > Plan, build, and review vibe-coded software like a senior engineer.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
