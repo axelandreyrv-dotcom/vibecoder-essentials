@@ -7,23 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
-### Added
-
-- **Claude Code Plugin Marketplace support** via `.claude-plugin/marketplace.json`.
-  Claude Code users can now install with
-  `/plugin marketplace add axelandreyrv-dotcom/vibecoder-essentials` followed by
-  `/plugin install vibecoder-essentials@vibecoder-essentials`, and invoke the
-  skill with `/vibecoder-essentials:vibecoder-essentials`.
-- Codex **native Agent Skill** install paths documented
-  (`.agents/skills/vibecoder-essentials/SKILL.md` repo-level and
-  `~/.agents/skills/vibecoder-essentials/SKILL.md` user-level), with `AGENTS.md`
-  kept as optional project guidance.
-
-### Changed
-
-- Reworked the `README.md` installation flow to put the Claude Code plugin
-  marketplace **Quick start** first, clarified that **Claude.ai** custom skills
-  use **ZIP upload**, and moved manual install lower as a fallback.
+No unreleased changes yet.
 
 ## [1.0.0] — 2026-06-02
 
@@ -46,6 +30,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
   - `references/output-templates.md` — exact Build Plan and Review templates.
 - Repository documentation: `README.md`, `SECURITY.md`, `CONTRIBUTING.md`,
   `AGENTS.md`, and `examples/sample-review.md`.
+- Example output files:
+  - `examples/sample-review.md` — full illustrative Review Mode output.
+  - `examples/sample-build-plan.md` — full illustrative Planning Mode output.
+- **Claude Code Plugin Marketplace support** via `.claude-plugin/marketplace.json`.
+  Claude Code users can install with
+  `/plugin marketplace add axelandreyrv-dotcom/vibecoder-essentials` followed by
+  `/plugin install vibecoder-essentials@vibecoder-essentials`, and invoke the
+  skill with `/vibecoder-essentials:vibecoder-essentials`.
+- **Codex native Agent Skill** install paths:
+  `.agents/skills/vibecoder-essentials/SKILL.md` (repo-level) and
+  `~/.agents/skills/vibecoder-essentials/SKILL.md` (user-level), with `AGENTS.md`
+  as optional project-level guidance.
+- `.github/copilot-instructions.md` example for GitHub Copilot / VS Code users.
 - Install instructions for Claude.ai, Claude Code, Codex, and GitHub Copilot /
   VS Code.
 
