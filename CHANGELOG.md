@@ -7,7 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
-_Nothing yet._
+### Added
+
+- **Claude Code Plugin Marketplace support** via `.claude-plugin/marketplace.json`.
+  Claude Code users can now install with
+  `/plugin marketplace add axelandreyrv-dotcom/vibecoder-essentials` followed by
+  `/plugin install vibecoder-essentials@vibecoder-essentials`, and invoke the
+  skill with `/vibecoder-essentials:vibecoder-essentials`.
+- Codex **native Agent Skill** install paths documented
+  (`.agents/skills/vibecoder-essentials/SKILL.md` repo-level and
+  `~/.agents/skills/vibecoder-essentials/SKILL.md` user-level), with `AGENTS.md`
+  kept as optional project guidance.
+
+### Changed
+
+- Reworked the `README.md` installation flow to put the Claude Code plugin
+  marketplace **Quick start** first, clarified that **Claude.ai** custom skills
+  use **ZIP upload**, and moved manual install lower as a fallback.
 
 ## [1.0.0] — 2026-06-02
 

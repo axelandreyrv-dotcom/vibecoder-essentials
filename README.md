@@ -43,6 +43,39 @@ VibeCoder Essentials catches these *early* (a sentence to fix) instead of *late*
 
 ---
 
+## Quick start (Claude Code)
+
+The fastest way to install. In Claude Code, add this repo as a plugin
+marketplace and install the skill:
+
+```text
+/plugin marketplace add axelandreyrv-dotcom/vibecoder-essentials
+/plugin install vibecoder-essentials@vibecoder-essentials
+```
+
+That's it. Now just talk to Claude naturally — the skill activates on planning
+and review requests:
+
+```text
+Use VibeCoder Essentials to plan this app before building.
+```
+
+```text
+Use VibeCoder Essentials to review this repo before production.
+```
+
+You can also invoke it explicitly by its namespaced name:
+
+```text
+/vibecoder-essentials:vibecoder-essentials
+```
+
+> The format is `<skill>@<marketplace>`. Both are named `vibecoder-essentials`
+> here, which is why the install line reads
+> `vibecoder-essentials@vibecoder-essentials`.
+
+---
+
 ## What it checks
 
 Across both modes, it reasons about the things that actually make software
@@ -69,11 +102,15 @@ production-grade:
 ## Installation
 
 The skill lives at [`skills/vibecoder-essentials/SKILL.md`](skills/vibecoder-essentials/SKILL.md).
-Pick your tool below.
+Pick your tool below. **Claude Code users: use the
+[Quick start](#quick-start-claude-code) plugin install above** — the sections
+here cover every other tool, plus a manual fallback.
 
 ### Claude.ai (web / desktop)
 
-Skills are available on paid plans via **Settings → Capabilities → Skills**.
+Claude.ai custom skills are installed by **ZIP upload** (there is no plugin
+marketplace on Claude.ai). Skills are available on paid plans via
+**Settings → Capabilities → Skills**.
 
 1. Download or clone this repo.
 2. Zip the skill folder so `SKILL.md` is at the **root** of the zip:
@@ -83,50 +120,42 @@ Skills are available on paid plans via **Settings → Capabilities → Skills**.
    ```
 3. In Claude.ai, open **Settings → Capabilities → Skills** (Pro/Max/Team/Enterprise).
 4. Click **Upload skill** and select `vibecoder-essentials.zip`.
-5. Start a new chat and say *"I want to plan a new app"* or *"Review my repo for
-   production-readiness."* Claude will load the skill automatically.
-
-### Claude Code
-
-Skills can live at the user level (all projects) or project level (one repo).
-
-**User-level (recommended — available everywhere):**
-
-```bash
-# macOS / Linux
-mkdir -p ~/.claude/skills
-cp -r skills/vibecoder-essentials ~/.claude/skills/
-
-# Windows (PowerShell)
-New-Item -ItemType Directory -Force "$env:USERPROFILE\.claude\skills"
-Copy-Item -Recurse skills\vibecoder-essentials "$env:USERPROFILE\.claude\skills\"
-```
-
-**Project-level (only this repo):**
-
-```bash
-mkdir -p .claude/skills
-cp -r skills/vibecoder-essentials .claude/skills/
-```
-
-Then in Claude Code, run `/doctor` (or just start a session) to confirm the skill
-is detected. It triggers automatically on planning/review requests, or you can
-ask for it by name.
+5. Start a new chat and say *"Use VibeCoder Essentials to plan this app"* or
+   *"Use VibeCoder Essentials to review my repo."* Claude loads the skill
+   automatically.
 
 ### Codex
 
-Codex reads agent instructions from `AGENTS.md`. This repo ships one at the root.
+Codex supports native **Agent Skills**, so you can install VibeCoder Essentials
+as a reusable skill — and optionally keep `AGENTS.md` for project-level guidance.
 
-1. Copy the skill into your project (or point Codex at this repo):
-   ```bash
-   cp -r skills/vibecoder-essentials /path/to/your/project/skills/
-   cp AGENTS.md /path/to/your/project/
-   ```
-2. `AGENTS.md` instructs Codex to apply VibeCoder Essentials in Planning or
-   Review Mode and points it to `skills/vibecoder-essentials/SKILL.md` and the
-   `references/` files.
-3. Ask Codex to *plan* or *review* an app — it will follow the skill's modes and
-   output templates.
+**Option A — install as an Agent Skill (recommended):** drop the skill folder
+into Codex's skills directory so it's discovered automatically.
+
+```bash
+# Repository-level (only this project)
+mkdir -p .agents/skills
+cp -r skills/vibecoder-essentials .agents/skills/
+#   → .agents/skills/vibecoder-essentials/SKILL.md
+
+# User-level (available in every project)
+mkdir -p ~/.agents/skills
+cp -r skills/vibecoder-essentials ~/.agents/skills/
+#   → ~/.agents/skills/vibecoder-essentials/SKILL.md
+```
+
+**Option B — project guidance via `AGENTS.md` (optional):** this repo ships an
+`AGENTS.md` at the root that tells Codex to apply VibeCoder Essentials in
+Planning or Review Mode and points it to
+`skills/vibecoder-essentials/SKILL.md` and the `references/` files. Copy it into
+your project if you want that behavior baked into the repo:
+
+```bash
+cp AGENTS.md /path/to/your/project/
+```
+
+Either way, ask Codex to *plan* or *review* an app — it follows the skill's
+modes and output templates.
 
 ### GitHub Copilot / VS Code
 
@@ -150,8 +179,37 @@ Copilot Chat respects repo-level custom instructions.
 3. Reload VS Code. In Copilot Chat, ask to plan or review your app, and reference
    the files with `#file` if needed.
 
-> **Note:** Native Agent Skills (auto-discovery) are a Claude feature. On Codex
-> and Copilot, the same content is applied via `AGENTS.md` /
+### Manual install (Claude Code, without the marketplace)
+
+If you'd rather not use the plugin marketplace, you can drop the skill straight
+into Claude Code's skills directory.
+
+**User-level (available in every project):**
+
+```bash
+# macOS / Linux
+mkdir -p ~/.claude/skills
+cp -r skills/vibecoder-essentials ~/.claude/skills/
+```
+
+```powershell
+# Windows (PowerShell)
+New-Item -ItemType Directory -Force "$env:USERPROFILE\.claude\skills"
+Copy-Item -Recurse skills\vibecoder-essentials "$env:USERPROFILE\.claude\skills\"
+```
+
+**Project-level (only this repo):**
+
+```bash
+mkdir -p .claude/skills
+cp -r skills/vibecoder-essentials .claude/skills/
+```
+
+Start a session (or run `/doctor`) to confirm the skill is detected. It triggers
+automatically on planning/review requests, or you can ask for it by name.
+
+> **Note:** Native Agent Skills and the plugin marketplace are Claude features.
+> On Codex and Copilot, the same content is applied via `AGENTS.md` /
 > `copilot-instructions.md`, which is why this repo ships both.
 
 ---
@@ -161,11 +219,12 @@ Copilot Chat respects repo-level custom instructions.
 Just talk to your assistant naturally. The skill detects the mode for you.
 
 **Planning:**
-> "I want to build a SaaS app where teams track their freelance invoices. Help me
-> plan it before I start coding."
+> "I want to build a SaaS app where teams track their freelance invoices. Use
+> VibeCoder Essentials to plan it before I start coding."
 
 **Reviewing:**
-> "Here's my repo. Is this safe to deploy to production?"
+> "Here's my repo. Use VibeCoder Essentials to check whether it's safe to deploy
+> to production."
 
 If it's ambiguous, the skill asks exactly one question: *"Are we planning this
 app before building it, or reviewing an app that already exists?"*
@@ -191,7 +250,7 @@ app before building it, or reviewing an app that already exists?"*
 
 ## Repository structure
 
-```
+```text
 vibecoder-essentials/
 ├── README.md                  # You are here
 ├── SECURITY.md                # Security policy & scope
@@ -199,6 +258,8 @@ vibecoder-essentials/
 ├── CHANGELOG.md               # Version history
 ├── AGENTS.md                  # Instructions for Codex & other agents
 ├── LICENSE                    # MIT
+├── .claude-plugin/
+│   └── marketplace.json       # Claude Code plugin marketplace manifest
 ├── examples/
 │   └── sample-review.md       # An example Review Mode output
 └── skills/
@@ -217,8 +278,8 @@ vibecoder-essentials/
 
 | Platform | Mechanism | Status |
 |----------|-----------|--------|
-| Claude.ai (Pro/Max/Team/Enterprise) | Native Agent Skill (upload) | ✅ |
-| Claude Code | Native Agent Skill (`~/.claude/skills`) | ✅ |
+| Claude Code | Plugin marketplace (`/plugin install`) or `~/.claude/skills` | ✅ |
+| Claude.ai (Pro/Max/Team/Enterprise) | Custom skill **ZIP upload** | ✅ |
 | Codex | `AGENTS.md` + skill files | ✅ |
 | GitHub Copilot / VS Code | `copilot-instructions.md` + skill files | ✅ |
 
@@ -232,3 +293,10 @@ is in [SECURITY.md](SECURITY.md).
 ## License
 
 [MIT](LICENSE) © VibeCoder Essentials contributors.
+
+---
+
+> 🇪🇸 **Nota:** VibeCoder Essentials funciona en español e inglés. Puedes pedirle
+> *"Usa VibeCoder Essentials para planear esta app antes de construirla"* o
+> *"Usa VibeCoder Essentials para revisar este repo antes de producción"* y se
+> activará igual. La documentación principal está en inglés.
