@@ -1,0 +1,6 @@
+# Force LF line endings for all text files
+* text=auto eol=lf
+
+# Explicitly mark Markdown as text with LF
+*.md text eol=lf
+*.json text eol=lf

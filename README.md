@@ -264,22 +264,22 @@ app before building it, or reviewing an app that already exists?"*
 
 ```text
 vibecoder-essentials/
-├── README.md                  # You are here
-├── SECURITY.md                # Security policy & scope
-├── CONTRIBUTING.md            # How to contribute
-├── CHANGELOG.md               # Version history
-├── AGENTS.md                  # Instructions for Codex & other agents
-├── LICENSE                    # MIT
+├── README.md                    # You are here
+├── SECURITY.md                  # Security policy & scope
+├── CONTRIBUTING.md              # How to contribute
+├── CHANGELOG.md                 # Version history
+├── AGENTS.md                    # Instructions for Codex & other agents
+├── LICENSE                      # MIT
 ├── .claude-plugin/
-│   └── marketplace.json       # Claude Code plugin marketplace manifest
+│   └── marketplace.json         # Claude Code plugin marketplace manifest
 ├── .github/
 │   └── copilot-instructions.md  # Copilot / VS Code custom instructions
 ├── examples/
-│   ├── sample-build-plan.md   # Example Planning Mode output
-│   └── sample-review.md       # Example Review Mode output
+│   ├── sample-build-plan.md     # Example Planning Mode output
+│   └── sample-review.md         # Example Review Mode output
 └── skills/
     └── vibecoder-essentials/
-        ├── SKILL.md           # The skill (modes, attitude, output contracts)
+        ├── SKILL.md             # The skill (modes, attitude, output contracts)
         └── references/
             ├── planning-mode.md      # Planning question bank
             ├── review-mode.md        # Review audit checklist

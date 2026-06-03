@@ -87,7 +87,7 @@ on Vercel without config.
 - **Security headers:** set `Content-Security-Policy`, `Strict-Transport-Security`,
   `X-Content-Type-Options`, and `X-Frame-Options` via `next.config.js` headers.
 - **Rate limiting** on auth endpoints (login, invite, magic link) and any
-  expensive action using Upstash Redis + `@upstash/ratelimit` as a middleware
+  expensive action using Upstash Redis + `@upstash/ratelimit` as middleware
   (add post-MVP or at first sign of abuse risk).
 - **File upload validation:** validate MIME type, file size (server-side), and
   scan for malicious content before storing in Supabase Storage.
@@ -116,7 +116,7 @@ users accept and are created as `editor` or `viewer` within that tenant.
 
 ## Data Model Draft
 
-```
+```text
 Tenant
   id         UUID PK
   name       TEXT
@@ -154,11 +154,13 @@ Post
 ```
 
 **Notes:**
+
 - `tenantId` denormalized on `Post` for fast RLS enforcement (avoids join).
 - Soft deletes on `Post` via `deletedAt` — recoverable, preserves audit trail.
-- Add an `AuditLog` table post-MVP: `(id, tenantId, userId, action, entityType, entityId, createdAt)`.
-- Indexes needed: `Post(tenantId, clientId)`, `Post(tenantId, status, scheduledAt)`,
-  `User(tenantId, email)`.
+- Add an `AuditLog` table post-MVP:
+  `(id, tenantId, userId, action, entityType, entityId, createdAt)`.
+- Indexes needed: `Post(tenantId, clientId)`,
+  `Post(tenantId, status, scheduledAt)`, `User(tenantId, email)`.
 
 ## Backend Rules
 
@@ -181,7 +183,8 @@ Post
 
 ## Async, Queues, and Background Jobs
 
-Work that leaves the request path (enqueue and return immediately; process in a worker):
+Work that leaves the request path (enqueue and return immediately; process in a
+worker):
 
 | Job | Trigger | Why async |
 |---|---|---|
@@ -245,6 +248,7 @@ than a dozen happy-path unit tests.
 | Production | `main` | Production Supabase project | Vercel env vars (production) |
 
 **CI/CD (GitHub Actions):**
+
 1. On PR → lint + type-check + unit/integration tests.
 2. On merge to `staging` → run tests → deploy to Vercel staging.
 3. On merge to `main` → run tests → run migrations → deploy to Vercel production.
