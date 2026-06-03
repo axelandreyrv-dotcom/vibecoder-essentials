@@ -165,17 +165,13 @@ Copilot Chat respects repo-level custom instructions.
    ```bash
    cp -r skills/vibecoder-essentials .
    ```
-2. Create `.github/copilot-instructions.md` with:
-   ```markdown
-   # Copilot Instructions
-
-   When the user wants to plan, build, or review an app, follow the
-   VibeCoder Essentials skill at `skills/vibecoder-essentials/SKILL.md`.
-   Detect Planning Mode (building something new) vs. Review Mode (an existing
-   app) and use the matching output template from
-   `skills/vibecoder-essentials/references/output-templates.md`.
-   Never trust the frontend; require server-side validation and authorization.
+2. Copy the ready-made instructions file from this repo:
+   ```bash
+   mkdir -p .github
+   cp .github/copilot-instructions.md /path/to/your/project/.github/
    ```
+   Or create `.github/copilot-instructions.md` manually — see the
+   [example in this repo](.github/copilot-instructions.md) for the full content.
 3. Reload VS Code. In Copilot Chat, ask to plan or review your app, and reference
    the files with `#file` if needed.
 
@@ -246,6 +242,13 @@ app before building it, or reviewing an app that already exists?"*
 > companies share one database with a `tenant_id` column. I'm worried about
 > tenant isolation, authorization, and whether it'll scale. Audit it."
 
+### See example outputs
+
+- [examples/sample-build-plan.md](examples/sample-build-plan.md) — a full
+  Planning Mode Build Plan for a B2B SaaS app, before any code is written.
+- [examples/sample-review.md](examples/sample-review.md) — a full Review Mode
+  audit of an existing Next.js + Supabase + OpenAI app.
+
 ---
 
 ## Repository structure
@@ -260,8 +263,11 @@ vibecoder-essentials/
 ├── LICENSE                    # MIT
 ├── .claude-plugin/
 │   └── marketplace.json       # Claude Code plugin marketplace manifest
+├── .github/
+│   └── copilot-instructions.md  # Copilot / VS Code custom instructions
 ├── examples/
-│   └── sample-review.md       # An example Review Mode output
+│   ├── sample-build-plan.md   # Example Planning Mode output
+│   └── sample-review.md       # Example Review Mode output
 └── skills/
     └── vibecoder-essentials/
         ├── SKILL.md           # The skill (modes, attitude, output contracts)
