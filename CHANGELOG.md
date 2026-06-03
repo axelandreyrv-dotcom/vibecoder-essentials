@@ -9,6 +9,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 No unreleased changes yet.
 
+## [1.0.2] — 2026-06-03
+
+### Fixed
+
+- Restored a richer bilingual, trigger-focused Skill description.
+- Confirmed `allowed-tools` is valid YAML frontmatter.
+- Confirmed Markdown files use LF line endings.
+- Kept `.gitattributes` configured for LF normalization.
+
+## [1.0.1] — 2026-06-03
+
+### Fixed
+
+- Fixed `allowed-tools` YAML frontmatter in `SKILL.md`.
+- Added `.gitattributes` to enforce LF line endings.
+- Normalized Markdown formatting for README and examples.
+
 ## [1.0.0] — 2026-06-02
 
 ### Added
@@ -46,5 +63,7 @@ No unreleased changes yet.
 - Install instructions for Claude.ai, Claude Code, Codex, and GitHub Copilot /
   VS Code.
 
-[Unreleased]: https://github.com/axelandreyrv-dotcom/vibecoder-essentials/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/axelandreyrv-dotcom/vibecoder-essentials/compare/v1.0.2...HEAD
+[1.0.2]: https://github.com/axelandreyrv-dotcom/vibecoder-essentials/compare/v1.0.1...v1.0.2
+[1.0.1]: https://github.com/axelandreyrv-dotcom/vibecoder-essentials/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/axelandreyrv-dotcom/vibecoder-essentials/releases/tag/v1.0.0
