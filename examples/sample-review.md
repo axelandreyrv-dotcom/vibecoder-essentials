@@ -139,18 +139,21 @@ test for the validation on `/api/generate`.
 ## Recommended Action Plan
 
 **Now (before any public traffic):**
+
 1. Move the OpenAI call server-side; remove the `NEXT_PUBLIC_` key.
 2. Add object-level authorization to all generation routes and enable Supabase
    RLS.
 3. Add input validation and try/catch to `/api/generate`.
 
 **Before launch:**
+
 4. Add per-user rate limiting (Upstash Redis) and a daily quota.
 5. Wire up Sentry for error tracking.
 6. Add CAPTCHA on signup and generate.
 7. Set security headers and tighten CORS.
 
 **Soon:**
+
 8. Move generation to a queue or stream responses; add caching.
 9. Add authorization and API tests; add pagination and a health check.
 
