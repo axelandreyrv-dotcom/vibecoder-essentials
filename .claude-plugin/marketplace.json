@@ -1,0 +1,21 @@
+{
+  "name": "vibecoder-essentials",
+  "owner": {
+    "name": "Axel Ruiz"
+  },
+  "metadata": {
+    "description": "Agent Skill marketplace for VibeCoder Essentials.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "vibecoder-essentials",
+      "description": "Plan, build, and review vibe-coded software like a senior engineer.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/vibecoder-essentials"
+      ]
+    }
+  ]
+}
