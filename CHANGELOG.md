@@ -49,5 +49,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Install instructions for Claude.ai, Claude Code, Codex, and GitHub Copilot /
   VS Code.
 
-[Unreleased]: https://github.com/your-org/vibecoder-essentials/compare/v1.0.0...HEAD
-[1.0.0]: https://github.com/your-org/vibecoder-essentials/releases/tag/v1.0.0
+[Unreleased]: https://github.com/axelandreyrv-dotcom/vibecoder-essentials/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/axelandreyrv-dotcom/vibecoder-essentials/releases/tag/v1.0.0

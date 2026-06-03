@@ -277,11 +277,11 @@ vibecoder-essentials/
 ## Compatibility
 
 | Platform | Mechanism | Status |
-|----------|-----------|--------|
-| Claude Code | Plugin marketplace (`/plugin install`) or `~/.claude/skills` | ✅ |
-| Claude.ai (Pro/Max/Team/Enterprise) | Custom skill **ZIP upload** | ✅ |
-| Codex | `AGENTS.md` + skill files | ✅ |
-| GitHub Copilot / VS Code | `copilot-instructions.md` + skill files | ✅ |
+|---|---|---|
+| Claude Code | Plugin marketplace (`/plugin install`) or manual `~/.claude/skills` install | ✅ |
+| Claude.ai | Custom skill ZIP upload | ✅ |
+| Codex | Native Agent Skill via `.agents/skills` plus optional `AGENTS.md` | ✅ |
+| GitHub Copilot / VS Code | `copilot-instructions.md` plus skill files | ✅ |
 
 ---
 
