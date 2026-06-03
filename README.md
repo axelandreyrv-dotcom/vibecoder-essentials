@@ -2,7 +2,7 @@
 
 <p align="center">
   <img src="assets/vibecoder-essentials-banner.png" alt="VibeCoder Essentials banner" width="100%">
-</p> 
+</p>
 
 > Plan, build, and review vibe-coded software like a senior engineer.
 
@@ -219,10 +219,12 @@ automatically on planning/review requests, or you can ask for it by name.
 Just talk to your assistant naturally. The skill detects the mode for you.
 
 **Planning:**
+
 > "I want to build a SaaS app where teams track their freelance invoices. Use
 > VibeCoder Essentials to plan it before I start coding."
 
 **Reviewing:**
+
 > "Here's my repo. Use VibeCoder Essentials to check whether it's safe to deploy
 > to production."
 
@@ -232,16 +234,19 @@ app before building it, or reviewing an app that already exists?"*
 ### Try these prompts
 
 **Planning Mode**
+
 > "I'm about to vibe-code a habit-tracking web app with a friend. It'll have
 > accounts, daily check-ins, and a streak leaderboard. Walk me through planning
 > it like a senior engineer before we write any code."
 
 **Review Mode**
+
 > "I built a Next.js app that calls the OpenAI API from the client and stores
 > notes in Supabase. Here's the repo — review it for security and
 > production-readiness before I launch."
 
 **SaaS multi-tenant review**
+
 > "Review my multi-tenant B2B dashboard (Node + Postgres + Prisma). Multiple
 > companies share one database with a `tenant_id` column. I'm worried about
 > tenant isolation, authorization, and whether it'll scale. Audit it."
